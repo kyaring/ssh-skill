@@ -391,7 +391,7 @@ MIT License
 
 ## 👨‍💻 作者
 
-张阳 (Michael Zhang) - [@badseal](https://github.com/badseal)
+Michael Zhang - [@badseal](https://github.com/badseal)
 
 ---
 
