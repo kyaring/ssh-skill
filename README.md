@@ -5,6 +5,36 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+---
+
+**2026-03-22 ： 更新预告**
+最近在升级ssh-skill，增加了“ssh tunnel”功能，主要目的是为了解决AI和我们自己访问服务器上的一些内部服务和站点。
+
+比如：服务器上有mysql服务，但是为了安全，未开放3306端口，这时候AI就会通过SSH登录到服务器，然后执行mysql命令来完成工作，在实际工作中，经常会出现ssh指令后，带着一大串mysql指令，命令超长时，出错几率会大很多且难调试。
+
+通过tunnel,可以把远程mysql端口直接映射到本地，直接访问localhost:3306即可。
+
+服务器端的内部站点也如此，把80端口映射到本地即可实现本地访问。
+
+甚至是，服务器端的服务，如果在docker容器中，且没有映射端口到主机，ssh tunnel也能够把容器内的端口，直接映射到本地。
+
+最近实测，映射到本地，AI在访问和理解时，除了效率高很多以外，执行命令时，也不必把很多命令组合在一起了，每一条命令返回的信息都可以被AI识别再进行后续处理，准确度和流程度明显提高。
+
+在claude code中，基本也是一句话搞定：
+
+“建立到 dev-001 的 SSH 隧道，目标是容器 18.0.0.20 的 MySQL”
+或者更简单
+“把dev-001服务器中的mysql容器，映射到本地”
+
+然后，ssh-skill会创建一个运行在后台的agent，此时无论在claude code内部，还是本机的任何软件，都可以访问到这个本地的服务和站点。
+
+现在已经在工作中使用了1周左右，预计4月正式更新版本。
+
+感谢各位佬对ssh-skill的关注。
+
+---
+
+
 ## ✨ 核心特性
 
 ### 🚀 极致性能
